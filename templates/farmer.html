@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agro AI | Farmer Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="farmer-page">
+
+    <nav class="farmer-navbar">
+        <a href="/" class="brand">🌿 Agro AI</a>
+
+        <div class="nav-links">
+            <a href="/marketplace">Market Prices</a>
+            <a href="/logout" class="login-btn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="farmer-hero">
+        <div class="farmer-content">
+
+            <p class="farmer-label">FARMER PORTAL</p>
+
+            <h1>
+                Welcome,
+                {{ session.get("name") }}!
+            </h1>
+
+            <p class="farmer-description">
+                Access agricultural market prices and make
+                informed decisions about your produce.
+            </p>
+
+            <a href="/marketplace" class="farmer-btn">
+                View Market Prices →
+            </a>
+            <a href="/predict" class="farmer-btn">
+    AI Price Prediction →
+</a>
+
+        </div>
+    </main>
+
+</body>
+</html>

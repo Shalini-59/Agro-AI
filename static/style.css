@@ -1,0 +1,822 @@
+
+/* Agro AI - Global Design System */
+
+:root {
+    --primary: #245C3A;
+    --secondary: #78966A;
+    --background: #F5F3EB;
+    --surface: #FFFFFF;
+    --text: #383D36;
+    --muted: #777D73;
+    --border: #E5E7DF;
+    --radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 11px 22px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 15px;
+}
+
+.primary-btn:hover {
+    background: #19462B;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+}
+
+/* ===== AGRO AI HOMEPAGE ===== */
+
+.home-navbar {
+    background: #FFFFFF;
+    min-height: 75px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    color: #245C3A;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #383D36;
+    font-weight: 600;
+}
+
+.nav-links .active {
+    color: #245C3A;
+}
+
+.login-btn {
+    border: 1px solid #245C3A;
+    padding: 9px 24px;
+    border-radius: 8px;
+}
+
+.hero {
+    min-height: 540px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.94),
+            rgba(255,255,255,0.65) 48%,
+            rgba(255,255,255,0.05)
+        ),
+        url("/static/farm-hero.png");
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 60px 6%;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.hero-content h1 {
+    color: #19462B;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.hero-content p {
+    font-size: 19px;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: #245C3A;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.hero-btn:hover {
+    background: #19462B;
+}
+
+.about-section {
+    padding: 55px 8%;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.about-section h2 {
+    color: #245C3A;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    max-width: 750px;
+    margin: auto;
+    color: #555;
+}
+
+.home-footer {
+    background: #245C3A;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+@media (max-width: 700px) {
+    .home-navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .hero {
+        min-height: 480px;
+        background-position: 65% center;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-shadow: none;
+}
+
+.hero-content h1,
+.hero-content p {
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+}
+
+.hero-btn {
+    text-shadow: none;
+}
+/* ===== FARMER DASHBOARD ===== */
+
+.farmer-page {
+    min-height: 100vh;
+    background: #F5F3EB;
+}
+
+.farmer-navbar {
+    min-height: 75px;
+    padding: 15px 5%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.farmer-hero {
+    min-height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.94),
+            rgba(255,255,255,0.72) 50%,
+            rgba(255,255,255,0.08)
+        ),
+        url("/static/farmer-bg.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.farmer-content {
+    max-width: 620px;
+}
+
+.farmer-label {
+    color: #78966A;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.farmer-content h1 {
+    color: #19462B;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.farmer-description {
+    color: #383D36;
+    font-size: 19px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.farmer-btn {
+    display: inline-block;
+    background: #245C3A;
+    color: #FFFFFF;
+    padding: 15px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.farmer-btn:hover {
+    background: #19462B;
+}
+
+@media (max-width: 700px) {
+    .farmer-navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .farmer-hero {
+        min-height: calc(100vh - 75px);
+        padding: 45px 6%;
+        background-position: 65% center;
+    }
+}
+/* ===== PURCHASER DASHBOARD ===== */
+
+.purchaser-page {
+    min-height: 100vh;
+    background: #F5F3EB;
+}
+
+.purchaser-navbar {
+    min-height: 75px;
+    padding: 15px 5%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.purchaser-hero {
+    min-height: calc(100vh - 75px);
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.95),
+            rgba(255,255,255,0.82) 48%,
+            rgba(255,255,255,0.15)
+        ),
+        url("/static/purchaser-bg.png");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.purchaser-content {
+    max-width: 620px;
+}
+
+.purchaser-label {
+    color: #78966A;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.purchaser-content h1 {
+    color: #19462B;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.purchaser-description {
+    color: #383D36;
+    font-size: 19px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.purchaser-btn {
+    display: inline-block;
+    background: #245C3A;
+    color: #FFFFFF;
+    padding: 15px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.purchaser-btn:hover {
+    background: #19462B;
+}
+
+@media (max-width: 700px) {
+    .purchaser-navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .purchaser-hero {
+        min-height: calc(100vh - 75px);
+        padding: 45px 6%;
+        background-position: 65% center;
+    }
+}
+/* ===== ADMIN DASHBOARD ===== */
+
+.admin-page {
+    min-height: 100vh;
+    background: #F5F3EB;
+}
+
+.admin-navbar {
+    min-height: 75px;
+    padding: 15px 5%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 45px auto;
+}
+
+.admin-heading {
+    margin-bottom: 30px;
+}
+
+.admin-label {
+    color: #78966A;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.admin-heading h1 {
+    color: #19462B;
+    font-size: 36px;
+    margin: 8px 0;
+}
+
+.admin-heading p {
+    color: #777D73;
+    margin-top: 5px;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.admin-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E7DF;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.admin-card h2 {
+    color: #245C3A;
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.admin-card p {
+    color: #777D73;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+.admin-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card label {
+    color: #383D36;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.admin-card input,
+.admin-card select {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 18px;
+    border: 1px solid #D9DED5;
+    border-radius: 7px;
+    font-size: 14px;
+    background: #FFFFFF;
+}
+
+.admin-card input:focus,
+.admin-card select:focus {
+    outline: 2px solid #78966A;
+    border-color: #245C3A;
+}
+
+.admin-card button {
+    background: #245C3A;
+    color: #FFFFFF;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.admin-card button:hover {
+    background: #19462B;
+}
+
+.price-management {
+    grid-column: 1 / -1;
+}
+
+.price-management form {
+    max-width: 550px;
+}
+
+.admin-market-link {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.admin-market-link a {
+    color: #245C3A;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-management {
+        grid-column: auto;
+    }
+
+    .admin-container {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    .admin-heading h1 {
+        font-size: 29px;
+    }
+}
+/* ===== LOGIN PAGE ===== */
+
+.login-page {
+    min-height: 100vh;
+    background: #F5F3EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 440px;
+}
+
+.login-brand {
+    color: #245C3A;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E7DF;
+    border-radius: 12px;
+    padding: 35px;
+}
+
+.login-card h1 {
+    color: #19462B;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.login-card p {
+    color: #777D73;
+    margin-bottom: 25px;
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-card label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #D9DED5;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.login-card input:focus {
+    outline: 2px solid #78966A;
+}
+
+.login-card button {
+    background: #245C3A;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-card button:hover {
+    background: #19462B;
+}
+
+.login-footer {
+    text-align: center;
+    color: #777D73;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 24px;
+    }
+}
+/* ===== MARKETPLACE RESPONSIVE DESIGN ===== */
+
+.marketplace-page {
+    min-height: 100vh;
+    background: #F5F3EB;
+}
+
+.market-navbar {
+    min-height: 75px;
+    padding: 15px 5%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.market-container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 40px auto;
+}
+
+.market-heading {
+    margin-bottom: 25px;
+}
+
+.market-heading h1 {
+    color: #19462B;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.market-heading p {
+    color: #777D73;
+}
+
+.latest-price {
+    background: #FFFFFF;
+    border: 1px solid #E5E7DF;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+.latest-price h2 {
+    color: #245C3A;
+    margin-bottom: 15px;
+}
+
+.latest-price h3 {
+    margin-bottom: 12px;
+}
+
+.price-badge {
+    display: inline-block;
+    background: #245C3A;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.market-filters {
+    background: #FFFFFF;
+    border: 1px solid #E5E7DF;
+    border-radius: 10px;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-field label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.filter-field input,
+.filter-field select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #D9DED5;
+    border-radius: 7px;
+    background: #FFFFFF;
+    font-size: 14px;
+}
+
+.filter-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.filter-actions button {
+    background: #245C3A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 25px;
+    font-weight: bold;
+}
+
+.filter-actions a {
+    color: #245C3A;
+    font-weight: 600;
+}
+
+.price-table-section h2 {
+    color: #245C3A;
+    margin-bottom: 15px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #E5E7DF;
+    overflow-wrap: anywhere;
+}
+
+.table-wrapper th {
+    background: #EAF0E7;
+    color: #245C3A;
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+    .market-container {
+        width: 92%;
+        margin: 25px auto;
+    }
+
+    .market-heading h1 {
+        font-size: 25px;
+    }
+
+    .market-filters {
+        grid-template-columns: 1fr;
+        padding: 18px;
+    }
+
+    .filter-actions {
+        grid-column: auto;
+        flex-wrap: wrap;
+    }
+
+    .market-navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .latest-price {
+        padding: 18px;
+    }
+}
+@media (max-width: 700px) {
+    .admin-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+    .admin-navbar .brand {
+        font-size: 24px;
+        white-space: nowrap;
+    }
+
+    .admin-navbar .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+    }
+}

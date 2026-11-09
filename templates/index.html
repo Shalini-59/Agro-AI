@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agro AI | Market Prices</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="marketplace-page">
+
+    <nav class="market-navbar">
+        <a href="/" class="brand">🌿 Agro AI</a>
+
+        <div class="nav-links">
+            <a href="/marketplace">Market Prices</a>
+            <a href="/logout" class="login-btn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="market-container">
+
+        <header class="market-heading">
+            <h1>Agricultural Market Price Dashboard</h1>
+            <p>
+                Welcome, {{ session.get("name") }}!
+                Check agricultural product prices based on location.
+            </p>
+        </header>
+
+        <section class="latest-price">
+            <h2>Market Prices</h2>
+            <h3>Latest Market Price</h3>
+
+            {% if prices %}
+                <p><strong>Product:</strong> {{ prices[0].product_name }}</p>
+                <p><strong>Location:</strong> {{ prices[0].location_name }}</p>
+                <p class="price-badge">
+                    ₹{{ "%.2f"|format(prices[0].price) }}
+                </p>
+                <p><strong>Date:</strong> {{ prices[0].price_date }}</p>
+            {% else %}
+                <p>No price data available.</p>
+            {% endif %}
+        </section>
+
+        <form method="GET" action="/marketplace" class="market-filters">
+
+            <div class="filter-field">
+                <label for="product">Select Product</label>
+                <select name="product" id="product">
+                    <option value="">All Products</option>
+
+                    {% for product in products %}
+                    <option value="{{ product.product_name }}"
+                        {% if request.args.get('product') == product.product_name %}selected{% endif %}>
+                        {{ product.product_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label for="location">Select Location</label>
+                <select name="location" id="location">
+                    <option value="">All Locations</option>
+
+                    {% for location in locations %}
+                    <option value="{{ location.location_name }}"
+                        {% if request.args.get('location') == location.location_name %}selected{% endif %}>
+                        {{ location.location_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label for="date">Select Date</label>
+              <input type="date" name="date" id="date"
+       value="{{ request.args.get('date', '') }}"
+       max="{{ today }}">
+            </div>
+
+            <div class="filter-field">
+                <label for="sort">Sort by Price</label>
+                <select name="sort" id="sort">
+                    <option value="">Default</option>
+                    <option value="low"
+                        {% if request.args.get('sort') == 'low' %}selected{% endif %}>
+                        Low to High
+                    </option>
+                    <option value="high"
+                        {% if request.args.get('sort') == 'high' %}selected{% endif %}>
+                        High to Low
+                    </option>
+                </select>
+            </div>
+
+            <div class="filter-actions">
+                <button type="submit">Search</button>
+                <a href="/marketplace">Clear Filters</a>
+            </div>
+
+        </form>
+
+        <section class="price-table-section">
+            <h2>Available Market Prices</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Location</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for item in prices %}
+                        <tr>
+                            <td>{{ item.product_name }}</td>
+                            <td>{{ item.location_name }}</td>
+                            <td>₹{{ "%.2f"|format(item.price) }}</td>
+                            <td>{{ item.price_date }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="4">No market prices found.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

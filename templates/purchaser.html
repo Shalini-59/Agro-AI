@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agro AI | Purchaser Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="purchaser-page">
+
+    <nav class="purchaser-navbar">
+        <a href="/" class="brand">🌿 Agro AI</a>
+
+        <div class="nav-links">
+            <a href="/marketplace">Market Prices</a>
+            <a href="/logout" class="login-btn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="purchaser-hero">
+        <div class="purchaser-content">
+
+            <p class="purchaser-label">PURCHASER PORTAL</p>
+
+            <h1>
+                Welcome,
+                {{ session.get("name") }}!
+            </h1>
+
+            <p class="purchaser-description">
+                Explore agricultural products and compare
+                market prices across different locations.
+            </p>
+
+            <a href="/marketplace" class="purchaser-btn">
+                Explore Market Prices →
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>

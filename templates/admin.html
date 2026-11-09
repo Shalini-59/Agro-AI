@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agro AI | Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="admin-page">
+
+    <nav class="admin-navbar">
+        <a href="/" class="brand">🌿 Agro AI</a>
+
+        <div class="nav-links">
+            <a href="/marketplace">Market Prices</a>
+            <a href="/logout" class="login-btn">Logout</a>
+        </div>
+    </nav>
+
+    <main class="admin-container">
+
+        <header class="admin-heading">
+            <p class="admin-label">ADMINISTRATION</p>
+            <h1>Admin Dashboard</h1>
+            <p>Welcome, {{ session.get("name") }}!</p>
+            <p>Manage your agricultural marketplace from one place.</p>
+        </header>
+
+        <div class="admin-grid">
+
+            <section class="admin-card">
+                <h2>Add New Product</h2>
+                <p>Register a new agricultural product.</p>
+
+                <form method="POST" action="/admin/add-product">
+
+                    <label>Product Name</label>
+                    <input type="text" name="product_name" required>
+
+                    <label>Category</label>
+                    <input type="text" name="category" required>
+
+                    <button type="submit">Add Product</button>
+
+                </form>
+            </section>
+
+            <section class="admin-card">
+                <h2>Add New Location</h2>
+                <p>Add a market location.</p>
+
+                <form method="POST" action="/admin/add-location">
+
+                    <label>Location Name</label>
+                    <input type="text" name="location_name" required>
+
+                    <label>District</label>
+                    <input type="text" name="district" required>
+
+                    <label>State</label>
+                    <input type="text" name="state" required>
+
+                    <button type="submit">Add Location</button>
+
+                </form>
+            </section>
+
+            <section class="admin-card price-management">
+                <h2>Add Market Price</h2>
+                <p>Enter or update a product's market price.</p>
+
+                <form method="POST" action="/admin/add-price">
+
+                    <label>Product</label>
+                    <select name="product_id" required>
+                        {% for product in products %}
+                        <option value="{{ product.product_id }}">
+                            {{ product.product_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <label>Location</label>
+                    <select name="location_id" required>
+                        {% for location in locations %}
+                        <option value="{{ location.location_id }}">
+                            {{ location.location_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <label>Price (₹)</label>
+                    <input type="number" name="price"
+                           step="0.01" min="0.01" required>
+
+                    <label>Date</label>
+                    <input type="date" name="price_date"
+       max="{{ today }}" required>
+
+                    <button type="submit">Save Market Price</button>
+
+                </form>
+            </section>
+
+        </div>
+
+        <div class="admin-market-link">
+            <a href="/marketplace">View Market Prices →</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
