@@ -4,3 +4,5 @@ __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .vscode/
+dataset/bharat_mandi_gujarat_2011_2026.csv
+dataset/cleaned_mandi_data.csv
