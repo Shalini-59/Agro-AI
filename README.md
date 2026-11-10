@@ -137,6 +137,12 @@ The large original and cleaned CSV datasets are not included in this GitHub repo
 - More accurate location-specific price predictions.
 - Deployment to a cloud platform.
 
+
+## 📸 Application Screenshots
+
+
+<img width="938" height="496" alt="Screenshot 2026-11-10 102052" src="https://github.com/user-attachments/assets/bf7ab150-ba90-4c63-a565-5c77b3307140" />
+
 ## 👩‍💻 Author
 
 **Shalini**  
