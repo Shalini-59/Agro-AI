@@ -143,6 +143,24 @@ The large original and cleaned CSV datasets are not included in this GitHub repo
 
 <img width="938" height="496" alt="Screenshot 2026-11-10 102052" src="https://github.com/user-attachments/assets/bf7ab150-ba90-4c63-a565-5c77b3307140" />
 
+### Farmer Marketplace Dashboard
+
+
+<img width="1870" height="1599" alt="agro-ai-farmer-marketplace" src="https://github.com/user-attachments/assets/6007477c-1569-436a-85e7-584434bcfdde" />
+
+### AI Price Prediction
+
+<img width="1873" height="1405" alt="agro-ai-price-prediction" src="https://github.com/user-attachments/assets/af522939-6940-477c-bf13-91a0649d96d2" />
+
+### Admin Dashboard
+<img width="930" height="448" alt="Screenshot 2026-11-10 110530" src="https://github.com/user-attachments/assets/e27bed9d-b43e-46c0-8013-54ea1fe909b1" />
+<img width="936" height="470" alt="Screenshot 2026-11-10 110633" src="https://github.com/user-attachments/assets/d91ba066-99ee-4ee9-a353-bc8aa5170c5d" />
+
+
+
+
+
+
 ## 👩‍💻 Author
 
 **Shalini**  
